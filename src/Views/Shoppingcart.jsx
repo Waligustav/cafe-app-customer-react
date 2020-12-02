@@ -7,6 +7,7 @@ import { Dessert } from "../Components/Dessert";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Modal } from "../Modal";
 import { PaymentModal } from "../Model/PaymentModal";
+import { desserts } from '../Model/productLists';
 
 export const Shoppingcart2 = (props) => {
   const [show, setShow] = useState(false);
@@ -14,8 +15,19 @@ export const Shoppingcart2 = (props) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const handleKurv = useContext(HandleKurv);
   let audio = new Audio("/click.mp4");
+  let audio1 = new Audio("/addSound.mp4")
+  let audio2 = new Audio("/removeSound.mp4")
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const startAudio1 = () => {
+    audio1.play()
+  }
+
+  const startAudio2 = () => {
+    audio2.play()
+  }
+
 
   const start = () => {
     audio.play();
@@ -38,20 +50,24 @@ export const Shoppingcart2 = (props) => {
   };
 
   const removeFromBasket = (productName, sizeName) => {
-    const newProducts = {
-      ...handleKurv.products,
-      [productName]: {
-        ...handleKurv.products[productName],
-        [sizeName]: {
-          antal: handleKurv.products[productName][sizeName]["antal"] - 1,
-          price: handleKurv.products[productName][sizeName]["price"],
+    startAudio2();
+    if (handleKurv.products[productName][sizeName]["antal"] > 0) {
+      const newProducts = {
+        ...handleKurv.products,
+        [productName]: {
+          ...handleKurv.products[productName],
+          [sizeName]: {
+            antal: handleKurv.products[productName][sizeName]["antal"] - 1,
+            price: handleKurv.products[productName][sizeName]["price"],
+          },
         },
-      },
+      };
+      handleKurv.setProducts(newProducts);
     };
-    handleKurv.setProducts(newProducts);
   };
 
   const addToBasket = (productName, sizeName) => {
+    startAudio1();
     const newProducts = {
       ...handleKurv.products,
       [productName]: {
@@ -65,12 +81,16 @@ export const Shoppingcart2 = (props) => {
     handleKurv.setProducts(newProducts);
   };
 
+  
+  const addExtra = (productName, sizeName) => {
+  }
+
   const orderList = Object.keys(handleKurv.products).map(
     (product) =>
       Object.keys(handleKurv.products[product]).map((size) => (
         <div className="shopping-cart-output-container">
           <div className="shopping-cart-output">
-            Du har bestilt {handleKurv.products[product][size]["antal"]}{" "}
+            {handleKurv.products[product][size]["antal"]}{" "}
             {product} ({size}). Pris per:{" "}
             {handleKurv.products[product][size]["price"]} kr,-
           </div>
@@ -83,6 +103,7 @@ export const Shoppingcart2 = (props) => {
             >
               -
             </span>
+            <span className="number-of-items">{handleKurv.products[product][size]["antal"]}</span>
             <span
               onClick={() => {
                 addToBasket(product, size);
@@ -94,13 +115,8 @@ export const Shoppingcart2 = (props) => {
           </div>
         </div>
       ))
-    // product.map((size) => {
-    //   console.log(size);
-    //   console.log(product);
-    // });
-  );
+      );
 
-  //   <li key={`${order.id}-${order.size}`}>{<OrderCard data={order} />}</li>
 
   return (
     <>
@@ -110,8 +126,7 @@ export const Shoppingcart2 = (props) => {
             <div className="back-drop" onClick={closeModalHandler}></div>
           ) : null}
         </div>
-        <Link to='/MainMenu'>
-          <img id='back-arrow-icon' src='../assets/back-arrow.png' />
+
         <Link
           to="/FrontPage/FrontPage"
           h1
@@ -119,17 +134,18 @@ export const Shoppingcart2 = (props) => {
           className="font-cursive"
           onClick={start}
         >
-          Kafé Judas
+          Handlekurv
         </Link>
 
         <Link to="/MainMenu" onClick={start}>
-          <img id="back-arrow-icon" src="../assets/back-arrow.png" />
+          <img id="back-arrow-icon" src="../assets/back-arrow.png" alt='arrow-icon' />
         </Link>
 
         <Modal show={show} close={closeModalHandler} />
         <img
           id="hamburger-icon"
           src="../assets/hamburger-icon.png"
+          alt='hamburger-icon'
           onClick={() => {
             setShow(true);
             start();
@@ -137,18 +153,34 @@ export const Shoppingcart2 = (props) => {
         />
       </header>
 
-      {orderList}
-
-      <div className="payment-ready-container">
-
-        <div id="totPrice">
-          <strong>Totalpris: {totalPrice}</strong>
+      <div className="content-background">
+        <div id='all-shopping-cart-outputs'>
+          {orderList}
         </div>
-        <button className="pay-now" onClick={() => setIsOpen(true)}>
-          Bekreft min ordre
-        </button>
+
+        <div className='other-container'>
+            <h4 className='other-title'>Noe ekstra?</h4>
+            <img alt='croissant' onClick={addExtra('Croissant', 'vanlig')} className='extras-img' src="../assets/noe-ekstra (1).jpg" alt={desserts[3].id}></img>
+            <img alt='dessert'className='extras-img' src="../assets/noe-ekstra (2).jpg" alt={desserts[6].id}></img>
+          </div>
+          <div className='other-container'>
+            <h4 className='other-title'>Kommentar til bestillingen?</h4>
+            <input type="text" placeholder="Vennligst havremelk i cappuccinoen"/>
+          </div>
+          {totalPrice > 0 &&
+          <div id="payment-ready-container">  
+          <Link to= '/Payment'>
+            <button className="pay-now" onClick={() => {setIsOpen(true); start(); }}>
+              Fullfør ordre på <strong>{totalPrice}</strong> kroner</button> 
+              </Link>
+            <Modal open={isOpen}>Hvordan ønsker du å betale?</Modal>
+          </div>
+          }
+        </div>
+
         <Modal open={isOpen}>Hvordan ønsker du å betale?</Modal>
-      </div>
+      
+
     </>
   );
 };

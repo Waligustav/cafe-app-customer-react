@@ -16,8 +16,8 @@ body * {
 h1 {
   margin: 0;
   padding: 0;
-  color: rgb(255, 255, 255);
-  text-shadow: 0 0 10px black;
+  color: rgba(70, 83, 71, 0.771);
+  text-shadow: 5px 2px 8px #fff;
 }
 
 .product-titles {
@@ -26,18 +26,17 @@ h1 {
 
 .menu-selection-container {
   text-align: center;
-  
 }
 
-.menu-background {
-  height: 100vh;
-  background-color: #d1d4cc;
-  ;
+.content-background {
+  min-height: 100vh;
+  background-color: #96a09b;
+  overflow: auto;
 }
 
 /* Cursive Font */
 .font-cursive {
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Lato', sans-serif;
 }
 
 /* Header */
@@ -47,22 +46,20 @@ h1 {
   padding: 0rem;
   height: 5.2rem;
   order: 1;
-  background-color: #d1d4cc;
+  /* background-image: linear-gradient(to bottom, #5c6963, #67746d, #96a09b); */
+  background-color: #5c6963;
 }
 
 #coffee-header {
-
   width: 6em;
   position: absolute, center;
   margin: auto;
-  
-
 }
 
 #header-title {
   position: relative;
-  margin: 1.3rem auto;
-  font-size: 38px;
+  margin: 1.5rem auto;
+  font-size: 32px;
   color: rgb(255, 255, 255);
   text-shadow: 0 0 1px black;
   text-decoration: none;
@@ -101,24 +98,25 @@ h1 {
 .product-image {
   width: 100%;
   max-width: 400px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   margin-bottom: 1rem;
 }
 
 .expander-section {
   position: relative;
   display: grid;
-  margin: 1.2rem 1.5rem auto;
+  margin: 1rem 1rem auto;
 }
 
 .iconImage {
   position: relative;
-  width: 3rem;
+  width: 2.7rem;
   margin-left: 0rem;
   margin: 0.3rem;
 }
 
 .expander-title {
+  padding-left: 1rem;
   height: 4.4rem;
   display: flex;
   align-items: center;
@@ -127,18 +125,22 @@ h1 {
   background-color: rgb(255, 255, 255);
   color: #444;
   cursor: pointer;
-  border-radius: 18px;
+  border-radius: 15px;
   box-shadow: 2px 2px 6px 0 rgb(134, 145, 140);
 }
 
 .expander-title
 .active {
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
+  border-radius: 15px;
+
 
 }
 
 .expander-icon {
   margin-left: auto;
+  margin-right: 1rem;
+  font-size: 1rem;
   padding: 0rem;
   transition: transform 0.6s ease;
 }
@@ -151,8 +153,7 @@ h1 {
   background-color: #fff;
   overflow: hidden;
   transition: max-height 0.6s ease;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-radius: 15px;
 }
 
 .expander-text {
@@ -168,12 +169,13 @@ h1 {
 /* Front page cards */
 
 .card-menu {
-  padding: 1rem 0 10rem 0;
-  background-color:#d5d2ca;
+  padding: 1rem 0 0 0;
+  background-color: #96a09b;
   order: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .menuImg {
@@ -204,26 +206,24 @@ h1 {
 .menu-section-button {
   width: 30%;
   padding: 1rem;
-  margin: 0.5rem 0.2rem;
+  margin: 1rem 0.2rem 0;
   font-weight: bold;
 	box-shadow: 0px 10px 7px -7px #aab4b0;
 	background-color:rgb(255, 255, 255);
   border-radius: 15px;
   border: none;
-	display:inline-block;
-	cursor:pointer;
+	display: inline-block;
+	cursor: pointer;
 	color:#000;
-	font-family:Arial;
   font-size: 13px;
-  font-weight:bold;
+  font-weight: bold;
 
 }
 
 .active-button {
 	position:relative;
-  top:1px;
-  background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-  background-color:#768d87;
+  /* background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%); */
+  background-color:#45584f;
   color:white;
 }
 
@@ -277,13 +277,12 @@ h1 {
 #go-to-shopping-cart-button {
   font-weight: bold;
 	box-shadow: 10px 10px 7px -7px #bebebe;
-  background-color:rgb(241, 241, 241);
+  background-color:#4c7c67;
   display:inline-block;
   border-radius:8px;
   border: none;
 	cursor:pointer;
-	color:rgb(50, 49, 49);
-	font-family:Arial;
+	color: rgb(239, 243, 242);
   font-size: 13px;
   font-weight:bold;
   position: absolute;
@@ -294,6 +293,7 @@ h1 {
 }
 
 .shopping-cart-img {
+  filter: invert(1);
   position: absolute;
   left: 0.7rem;
   width: 2.3rem;
@@ -360,8 +360,8 @@ h1 {
 /* Shopping cart */
 
 #all-shopping-cart-outputs {
-  background-color: #2B261F;
-  border: 2px solid rgb(235, 231, 228);
+  color: rgb(41, 48, 49);
+  background-color: #656860;
   border-radius: 5px;
   margin: 1rem 0.5rem 2rem;
   height: 270px;
@@ -376,14 +376,13 @@ h1 {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 20px;
   border-radius: 20px;
-  background: #3a816b;
+  background: #dbf0e9;
 }
 
 .shopping-cart-output-container {
-  
   display: grid;
-  background-color: rgb(255, 255, 255);
-  margin: 1rem 1rem auto;
+  background-color: rgb(235, 231, 228);
+  margin: 0.5rem 0.5rem auto;
   font-size: 1rem;
 }
 
@@ -397,21 +396,29 @@ h1 {
   padding: 1rem 1rem 0.5rem 1rem;
 }
 
-.other-cart-container {
+.other-container {
   text-align: center;
   color: rgb(235, 231, 228);
   font-size: 2rem;
 }
 
+.payment-title {
+  padding: 2rem 0 1rem 0;
+}
+
+.payment-option-box {
+  margin: 0rem;
+}
+
 input {
   margin: 1rem;
-  width: 15rem;
-  height: 2rem;
+  width: 17rem;
+  height: 3rem;
   text-align: center;
   font-size: 0.9rem;
 }
 
-.cart-title {
+.other-title {
   font-size: 1.5rem;
   margin: 1rem 0 0 0;
   text-shadow: 0 0 5px black;
@@ -424,7 +431,7 @@ input {
 }
 
 #payment-ready-container .pay-now {
-  background-color: #20614c;
+  background-color: #4c7c67;
   margin: 0 auto;
   text-align: center;
   position: fixed;
@@ -459,14 +466,15 @@ input {
 /* CONTACT PAGE */
 .contact-form-container {
   height: 100vh;
+  background-color: rgba(142, 156, 149);
 }
 
 
 .contact-form {
-  background-color: rgba(255, 255, 255, 0.518);
+  background-color: rgba(82, 94, 89, 0.62);
   display: flex;
-  width: 19rem;
-  height: 12rem;
+  width: 20rem;
+  height: 40rem;
   flex-direction: column;
   margin: 0rem auto;
   position: relative;
@@ -477,17 +485,17 @@ input {
 #telephone-icon {
   opacity: 1;
   position: absolute;
-  width: 3.4rem;
+  width: 3rem;
   z-index: 3;
   margin: 1rem;
-  top: 1rem;
+  top: 1.5rem;
   
 }
 
 #mail-icon {
   opacity: 1;
   position: absolute;
-  width: 3.4rem;
+  width: 3rem;
   z-index: 3;
   margin: 1rem;
   top: 5.5rem;
@@ -496,7 +504,7 @@ input {
 
 .cafe-map {
 
-  background-color: rgba(255, 255, 255, 0.518);
+  background-color: rgba(142, 156, 149);
   display: flex;
   width: 19rem;
   height: 14rem;
@@ -508,20 +516,71 @@ input {
 #map-img {
   opacity: 1;
   position: absolute;
-  width: 18rem;
+  width: 20rem;
   z-index: 3;
-  margin: 0.5rem;
-  top: 3rem;
+  top: 20rem;
 }
 
 .map-txt {
   text-align: center;
+  top: 8rem;
+  position: relative;
 }
 
 .info-txt {
   text-align: center;
   position: relative;
   top: 2.3rem;
+  color: white;
+}
+
+#countdown {
+  background-color: #5c6963;
+  width: 20rem;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 15px;
+}
+
+#timer-div {
+  padding: 1rem;
+}
+
+#timer-txt {
+  font-size: 1.5rem;
+  padding: 0 2rem;
+}
+
+#timer-count {
+  margin: 0.5rem 0 0 0;
+  font-size: 3rem;
+}
+
+#payment-pic {
+  width: 15rem;
+  margin-top: 1rem;
+}
+
+#payment-options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+#test2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+}
+
+#payment-txt {
+  color: white;
+  font-size: 30px;
+  margin-top: 2rem;
 }
 
 /*
