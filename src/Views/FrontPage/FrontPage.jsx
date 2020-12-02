@@ -6,23 +6,24 @@ import '../../Styles/styles.css';
 import { VarmDrikke } from '../Menu/Components/VarmDrikke';
 import { KallDrikke } from '../Menu/Components/KallDrikke';
 import { Desserts } from '../Menu/Components/Dessert';
-import { MenuSelection } from '../Menu/Components/MenuSelection';
 import { PricePreView } from '../../Components/PricePreView';
 import { HandleKurv } from '../../Model/handleKurv';
+import { Modal } from '../../Modal';
 
 const MainMenu = () => {
-  const menuSectionNames = ['Varm drikke', 'Kald drikke', 'Dessert'];
-  let totalPrice = 1;
+  let audio = new Audio("/click.mp4")
 
   // Disse to er states her i MainMenu (se "useState"). Inne i useState(her) er det lagt utgangspunkt-verdier.
   // Gjeldende verdi ligger alltid i første variabel i arrayet, og endres når funksjonen (andre del av arrayet) kalles.
-  const [menuSection, setMenuSection] = useState(menuSectionNames[0]); // menuSection blir til "Varm drikke", "Kald drikke" eller "Dessert".
-  const [menuItems, setMenuItems] = useState([]);
-  const [fontSize, setFontsize] = useState(16);
-  let { area } = useParams();
 
-  const getArea = () => {
-  };
+  const [show, setShow] = useState(false);
+  const closeModalHandler = () => setShow(false);
+
+  
+    const start = () => {
+      audio.play()
+    }
+
 
   const handleKurv = () => {
     return HandleKurv.map((
@@ -34,38 +35,44 @@ const MainMenu = () => {
 
   return (
     <>
-      <div>{handleKurv}</div>
-      <p style={{
-        fontSize:`${fontSize}px`
-      }}>Welcome to Kafè Judas - Choose a menu</p>
-      <div id="Front-page-menu-choice-container">
-        <MenuSelection/>
-      </div>
-      <div className="font-changer">
+      <header id='header-container'>
+        <div>
+          {show ? <div className="back-drop" onClick={closeModalHandler}></div> : null}
+        </div>
+
+        <Link to='/FrontPage/FrontPage' h1 id='header-title' className='font-cursive' onClick={start}>
+          Kafé HK
+        </Link>
         
-        <button onClick = {() => setFontsize(fontSize + 5)}>+ increase</button>
-        <button onClick = {() => setFontsize(fontSize - 5)}>- decrease</button>
-        <p></p>
+          <Modal show={show} close={closeModalHandler}/>   
+        <img id='hamburger-icon' src='../assets/hamburger-icon.png' onClick={() => { setShow(true); start(); }}/>
+
+      </header>
       
+      <div id="Front-page-menu-choice-container">
       </div>
+      
+      <div className="card-menu">
 
-      <div class="cardMenu">
-
-        <h3 class="menuText warmDrinks">Varm drikke</h3>
-        <h3 class="menuText coldDrinks">Kald drikke</h3>
-        <h3 class="menuText desserts">Dessert</h3>
-
-      <Link to='/MainMenu/:area?'><img id='menuImg' src='/assets/warm-beverage-images/cortado-img.png' alt="Bilde av kaffe" />
-      </Link>
-      <Link to='/MainMenu/:area?'><img id='menuImg' src='/assets/cold-drinks-images/ice-tea-img.png' alt="Bilde av iste" />
-      </Link>
-      <Link to='/ShoppingCart/'>
-        <img id='menuImg' src='/assets/desserts-images/cinnamon-roll-img.png' alt="Bilde av kanelsnurr" />
-      </Link>
+        <div onClick={start} class="warmDrinks frontpage-card">
+          <Link to='/MainMenu/VarmDrikke'>
+            <img class='menuImg' src='/assets/coffee-menu-card (1).jpg' alt="Kaffe" />
+            <h1 className="frontpage-card-text">Varme drikker</h1>
+        </Link>
+        </div>
+        <div onClick={start} class="coldDrinks frontpage-card">
+        <Link to='/MainMenu/KallDrikke'>
+          <img class='menuImg' src='/assets/iced-coffee-menu-card.jpg' alt="Iste" />
+          <h1 className="frontpage-card-text">Kalde drikker</h1>
+        </Link>
+        </div>
+        <div onClick={start} class="dessert frontpage-card">
+          <Link to='/MainMenu/Desserts'>
+            <img class='menuImg' src='/assets/croissant-menu-card.jpg' alt="Kanelsnurr" />
+            <h1 className="frontpage-card-text">Desserter</h1>
+        </Link>
+        </div>
       </div>
-      {getArea()}
-      <PricePreView totalPrice={totalPrice} />
-
     </>
   );
 };

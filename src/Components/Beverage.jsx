@@ -7,6 +7,17 @@ import { Shoppingcart } from '../Views/Shoppingcart';
 
 const Beverage = (props) => {
   const handleKurv = useContext(HandleKurv);
+  let audio1 = new Audio("/addSound.mp4")
+  let audio2 = new Audio("/removeSound.mp4")
+
+
+  const startAudio1 = () => {
+    audio1.play()
+  }
+
+  const startAudio2 = () => {
+    audio2.play()
+  }
 
   const getNrOrderOf = (item) => {
     if (handleKurv.products[props.type.id] && handleKurv.products[props.type.id][item.storlek]) {
@@ -16,6 +27,8 @@ const Beverage = (props) => {
   };
 
   const addToBasket = (item) => {
+    startAudio1();
+  
     console.log("item:", item);
     const nrOrderedOf = getNrOrderOf(item);
     handleKurv.setProducts((prevstate) => {
@@ -33,6 +46,7 @@ const Beverage = (props) => {
   };
 
   const removeFromBasket = (item) => {
+    startAudio2();
     const nrOrderedOf = getNrOrderOf(item);
     if (nrOrderedOf > 0) {
       handleKurv.setProducts((prevstate) => {
@@ -51,38 +65,44 @@ const Beverage = (props) => {
   };
 
   return (
-  <Expander title={props.type.id}>
-    <div className='expander-text'>{
-          props.type.size.map((item) => {
-            return (
-              <div className="size-buttons-container">
-                <span 
-                  onClick={() => {
-                    removeFromBasket(item);
-                  }}
-                  className={'button minus-button'}
-                >
-                  -
-                </span>
-                <span className="number-of-items">{getNrOrderOf(item)}</span>
-                <span 
-                  onClick={() => {
-                    addToBasket(item);
-                  }}
-                  className={'button plus-button'}
-                >
-                  +
-                </span>
-                <span>
-                  {` ${item.storlek}: `}<strong>{item.price}</strong>{`,-`}
-                </span>
-              </div>
-            );
-          })
-    }</div>
-  </Expander>
-  );
-};
+    <Expander title={props.type.id} icon={props.type.icon} >
+      <div className='expander-text'>
+      <img 
+      alt="product-image"
+      className="product-image"
+      src={props.type.img} 
+      alt={props.type.id}/>
+      {
+            props.type.size.map((item) => {
+              return (
+                <div className="size-buttons-container">
+                  <span 
+                    onClick={() => {
+                      removeFromBasket(item);
+                    }}
+                    className={'button minus-button'}
+                  >
+                    -
+                  </span>
+                  <span className="number-of-items">{getNrOrderOf(item)}</span>
+                  <span 
+                    onClick={() => {
+                      addToBasket(item);
+                    }}
+                    className={'button plus-button'}
+                  >
+                    +
+                  </span>
+                  <span>
+                    {`  ${item.storlek}: `}<strong>{item.price}</strong>{`,-`}
+                  </span>
+                </div>
+              );
+            })
+      }</div>
+    </Expander>
+    );
+  };
 
 export default Beverage;
 
