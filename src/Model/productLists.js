@@ -3,7 +3,7 @@ import React from 'react';
 const warmBeverages = [
   {
     id: 'Filterkaffe',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc1.png',
     size: [
       {
         price: 28,
@@ -22,7 +22,7 @@ const warmBeverages = [
   },
   {
     id: 'Cappuccino',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc2.png',
     size: [
       {
         price: 38,
@@ -41,7 +41,7 @@ const warmBeverages = [
   },
   {
     id: 'Americano',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc3.png',
     size: [
       {
         price: 32,
@@ -60,7 +60,7 @@ const warmBeverages = [
   },
   {
     id: 'Kaffe Mocha',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc4.png',
     size: [
       {
         price: 38,
@@ -79,7 +79,7 @@ const warmBeverages = [
   },
   {
     id: 'Kaffe Latte',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc4.png',
     size: [
       {
         price: 38,
@@ -98,7 +98,7 @@ const warmBeverages = [
   },
   {
     id: 'Caramel Macchiato',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc4.png',
     size: [
       {
         price: 45,
@@ -117,7 +117,7 @@ const warmBeverages = [
   },
   {
     id: 'Espresso',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc2.png',
     size: [
       {
         price: 34,
@@ -136,7 +136,7 @@ const warmBeverages = [
   },
   {
     id: 'Cortado',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/wc3.png',
     size: [
       {
         price: 36,
@@ -158,7 +158,7 @@ const warmBeverages = [
 const coldBeverages = [
   {
     id: 'Iskaffe',
-    icon: '../assets/pngkey.png',
+    icon: '/assets/icons/iced-coffee.png',
     size: [
       {
         name: 'Iskaffe (liten)',
@@ -180,7 +180,7 @@ const coldBeverages = [
   },
   {
     id: 'Iste',
-    icon: '../assets/pngkey.png',
+    icon: '../assets/icons/iced-tea.png',
     size: [
       {
         name: 'Iste (liten)',
@@ -205,7 +205,7 @@ const coldBeverages = [
 const desserts = [
   {
     id: 'Brownies',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d1.png',
     size: [
       {
         name: 'Brownies',
@@ -213,11 +213,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Gluten',
     img: '../assets/desserts-images/brownies-img.png',
   },
   {
     id: 'Oreokake',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d2.png',
     size: [
       {
         name: 'Oreokake',
@@ -225,11 +226,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Soya, gluten, melk',
     img: '../assets/desserts-images/oreo-cake-img.png',
   },
   {
     id: 'Kanelbolle',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d3.png',
     size: [
       {
         name: 'Kanelbolle',
@@ -237,11 +239,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Egg, gluten, melk',
     img: '../assets/desserts-images/cinnamon-roll-img.png',
   },
   {
     id: 'Croissant',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d4.png',
     size: [
       {
         name: 'Croissant',
@@ -249,11 +252,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Egg, gluten, melk',
     img: '../assets/desserts-images/croissant-img.png',
   },
   {
     id: 'Chiapudding',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d5.png',
     size: [
       {
         name: 'Chiapudding',
@@ -261,11 +265,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Nøtter (mandelmelk)',
     img: '../assets/desserts-images/brownies-img.png',
   },
   {
     id: 'Brioche',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d6.png',
     size: [
       {
         name: 'Brioche',
@@ -273,12 +278,13 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Egg, gluten, melk',
     img: '../assets/desserts-images/brioche-img.png',
   },
   {
 
     id: 'Scones',
-    icon: '../assets/cake-icon.png',
+    icon: '../assets/icons/d4.png',
     size: [
       {
         name: 'Scones',
@@ -286,6 +292,7 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
+    allergens: 'Egg, gluten, melk',
     img: '../assets/desserts-images/scones-img.png',
   },
 ];
