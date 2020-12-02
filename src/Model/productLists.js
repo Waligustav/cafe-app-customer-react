@@ -3,6 +3,7 @@ import React from 'react';
 const warmBeverages = [
   {
     id: 'Filterkaffe',
+    icon: '../assets/icons/wc1.png',
     size: [
       {
         price: 28,
@@ -17,10 +18,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-
+    img: '../assets/warm-beverage-images/black-coffee-img.png',
   },
   {
     id: 'Cappuccino',
+    icon: '../assets/icons/wc2.png',
     size: [
       {
         price: 38,
@@ -35,10 +37,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/cappuccino-img.png',
   },
   {
     id: 'Americano',
+    icon: '../assets/icons/wc3.png',
     size: [
       {
         price: 32,
@@ -53,10 +56,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/americano-img.png',
   },
   {
     id: 'Kaffe Mocha',
+    icon: '../assets/icons/wc4.png',
     size: [
       {
         price: 38,
@@ -71,10 +75,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/coffee-mocha-img.png',
   },
   {
     id: 'Kaffe Latte',
+    icon: '../assets/icons/wc4.png',
     size: [
       {
         price: 38,
@@ -89,10 +94,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/caffe-latte-img.png',
   },
   {
     id: 'Caramel Macchiato',
+    icon: '../assets/icons/wc4.png',
     size: [
       {
         price: 45,
@@ -107,10 +113,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/caramel-macchiato-img.png',
   },
   {
     id: 'Espresso',
+    icon: '../assets/icons/wc2.png',
     size: [
       {
         price: 34,
@@ -125,10 +132,11 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/espresso-img.png',
   },
   {
     id: 'Cortado',
+    icon: '../assets/icons/wc3.png',
     size: [
       {
         price: 36,
@@ -143,13 +151,14 @@ const warmBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/warm-beverage-images/cortado-img.png',
   },
 ];
 
 const coldBeverages = [
   {
     id: 'Iskaffe',
+    icon: '/assets/icons/iced-coffee.png',
     size: [
       {
         name: 'Iskaffe (liten)',
@@ -167,10 +176,11 @@ const coldBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/cold-drinks-images/iced-coffee-img.png',
   },
   {
     id: 'Iste',
+    icon: '../assets/icons/iced-tea.png',
     size: [
       {
         name: 'Iste (liten)',
@@ -188,13 +198,14 @@ const coldBeverages = [
         storlek: 'stor',
       },
     ],
-    img: '',
+    img: '../assets/cold-drinks-images/ice-tea-img.png',
   },
 ];
 
 const desserts = [
   {
     id: 'Brownies',
+    icon: '../assets/icons/d1.png',
     size: [
       {
         name: 'Brownies',
@@ -202,10 +213,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Gluten',
+    img: '../assets/desserts-images/brownies-img.png',
   },
   {
     id: 'Oreokake',
+    icon: '../assets/icons/d2.png',
     size: [
       {
         name: 'Oreokake',
@@ -213,10 +226,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Soya, gluten, melk',
+    img: '../assets/desserts-images/oreo-cake-img.png',
   },
   {
     id: 'Kanelbolle',
+    icon: '../assets/icons/d3.png',
     size: [
       {
         name: 'Kanelbolle',
@@ -224,10 +239,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Egg, gluten, melk',
+    img: '../assets/desserts-images/cinnamon-roll-img.png',
   },
   {
     id: 'Croissant',
+    icon: '../assets/icons/d4.png',
     size: [
       {
         name: 'Croissant',
@@ -235,10 +252,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Egg, gluten, melk',
+    img: '../assets/desserts-images/croissant-img.png',
   },
   {
     id: 'Chiapudding',
+    icon: '../assets/icons/d5.png',
     size: [
       {
         name: 'Chiapudding',
@@ -246,10 +265,12 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Nøtter (mandelmelk)',
+    img: '../assets/desserts-images/brownies-img.png',
   },
   {
     id: 'Brioche',
+    icon: '../assets/icons/d6.png',
     size: [
       {
         name: 'Brioche',
@@ -257,10 +278,13 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Egg, gluten, melk',
+    img: '../assets/desserts-images/brioche-img.png',
   },
   {
+
     id: 'Scones',
+    icon: '../assets/icons/d4.png',
     size: [
       {
         name: 'Scones',
@@ -268,7 +292,8 @@ const desserts = [
         storlek: 'vanlig'
       }
     ],
-    img: '',
+    allergens: 'Egg, gluten, melk',
+    img: '../assets/desserts-images/scones-img.png',
   },
 ];
 
