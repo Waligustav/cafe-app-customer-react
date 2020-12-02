@@ -19,13 +19,13 @@ export const MenuSelection = () => {
       <button
         className={`menu-section-button ${area === 'VarmDrikke' ? 'active-button' : ''}`}
         onClick={() =>{ history.push('/MainMenu/VarmDrikke'); start()}}
-        
       >
         {menuSectionNames[0]} {/* Det som står på knappen. Hentes bare statisk fra menuSectionNames-array øverst */}
       </button>
       <button
         className={`menu-section-button ${area === 'KallDrikke' ? 'active-button' : ''}`}
-        onClick={() =>{ history.push('/MainMenu/KallDrikke'); start()}}
+        onClick={() =>{ history.push('/MainMenu/Kaldrikke'); start()}}
+
       >
         {menuSectionNames[1]}
       </button>
